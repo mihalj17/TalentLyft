@@ -1,5 +1,16 @@
-<mat-list role="list">
-    <mat-list-item role="listitem" *ngFor="let user of listUsers">{{
-        user.title
-    }}</mat-list-item>
-</mat-list>
+<div class="main-content">
+    <mat-card class="list-users" role="listitem" *ngFor="let user of listUsers">
+        <mat-card-title>{{ user.title }}</mat-card-title>
+        <mat-card-content>
+            {{ user.description }}
+            
+        </mat-card-content>
+        <mat-card-actions>
+            <a class="action-link" [routerLink]="['/users/view', user.id]">View</a>
+            |
+            <a class="action-link" [routerLink]="['/users/edit', user.id]">EDIT</a>
+            |
+            <a class="action-link" [routerLink]="['/users/delete', user.id]">Delete</a>
+        </mat-card-actions>
+    </mat-card>
+</div>

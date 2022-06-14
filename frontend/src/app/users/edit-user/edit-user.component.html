@@ -1,1 +1,36 @@
-<p>edit-user works!</p>
+<mat-card>
+    <mat-card-title>Update Task</mat-card-title>
+    <mat-card-content style="padding-top: 20px;">
+<div *ngIf="dataLoaded">
+<form [formGroup]="editUserForm" (submit)="updateUser()">
+    
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>Title</mat-label>
+            <input
+                matInput
+                placeholder="title"
+                formControlName="title"
+            />
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="outline">
+            <mat-label>Description</mat-label>
+            <input
+                matInput
+                placeholder="description"
+                formControlName="description"
+            />
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+    </p>
+    <p><mat-checkbox formControlName="published">Publish!</mat-checkbox></p>
+    <p>
+        <button mat-raised-button color="primary" [disabled]="!editUserForm.valid">Update Task</button>
+    </p>
+</form>
+</div>
+</mat-card-content>
+</mat-card>

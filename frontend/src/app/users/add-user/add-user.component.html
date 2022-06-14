@@ -1,1 +1,33 @@
-<p>add-user works!</p>
+<mat-card>
+    <mat-card-title>Create New Task</mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="addUserForm" (submit)="createUser()">
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Title</mat-label>
+                    <input
+                        matInput
+                        placeholder="title"
+                        formControlName="title"
+                    />
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="outline">
+                    <mat-label>Description</mat-label>
+                    <input
+                        matInput
+                        placeholder="description"
+                        formControlName="description"
+                    />
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                </mat-form-field>
+            </p>
+            <p><mat-checkbox formControlName="published">Publish!</mat-checkbox></p>
+            <p>
+                <button mat-raised-button color="primary" [disabled]="!addUserForm.valid">Create Task</button>
+            </p>
+        </form>
+    </mat-card-content>
+</mat-card>
