@@ -1,6 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TutorialService } from 'src/app/services/tutorial.service';
+import { Tutorial } from 'src/app/models/tutorial.model';
+
+
+
+  
+  const ELEMENT_DATA: Tutorial[] = [
+    
+  ];
 
 @Component({
   selector: 'app-list-users',
@@ -9,7 +17,9 @@ import { TutorialService } from 'src/app/services/tutorial.service';
 })
 export class ListUsersComponent implements OnInit {
 
-  listUsers!:any;
+  listUsers:Tutorial[]=[];
+  displayedColumns: string[] = ['id', 'title', 'description', 'published','actions'];
+  dataSource = ELEMENT_DATA;
   constructor(private tutorialService:TutorialService) { }
 
   ngOnInit(): void {

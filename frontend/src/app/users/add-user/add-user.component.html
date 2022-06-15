@@ -11,6 +11,23 @@
                         formControlName="title"
                     />
                     <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+
+                    <mat-error
+                        *ngIf="
+                            addUserForm.controls['title'].errors &&
+                            addUserForm.controls['title'].hasError('required')
+                        "
+                    >
+                        Title is requiered
+                    </mat-error>
+                    <mat-error
+                        *ngIf="
+                            addUserForm.controls['title'].errors &&
+                            addUserForm.controls['title'].hasError('maxlength')
+                        "
+                    >
+                        Title should be 10 letters
+                    </mat-error>
                 </mat-form-field>
             </p>
             <p>
@@ -22,11 +39,31 @@
                         formControlName="description"
                     />
                     <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    <mat-error
+                        *ngIf="
+                            addUserForm.controls['description'].errors &&
+                            addUserForm.controls['description'].hasError('required')
+                        "
+                    >
+                        Description is requiered
+                    </mat-error>
+                   
                 </mat-form-field>
             </p>
-            <p><mat-checkbox formControlName="published">Publish!</mat-checkbox></p>
             <p>
-                <button mat-raised-button color="primary" [disabled]="!addUserForm.valid">Create Task</button>
+                <mat-checkbox formControlName="published"
+                    >Publish!</mat-checkbox
+                >
+
+            </p>
+            <p>
+                <button
+                    mat-raised-button
+                    color="primary"
+                    [disabled]="!addUserForm.valid"
+                >
+                    Create Task
+                </button>
             </p>
         </form>
     </mat-card-content>

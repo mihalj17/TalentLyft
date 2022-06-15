@@ -16,7 +16,7 @@ export class AddUserComponent implements OnInit {
 
   ngOnInit(): void {
       this.addUserForm= this.formBuilder.group({
-          'title' : new  FormControl('',[Validators.required,Validators.minLength(3)]),
+          'title' : new  FormControl('',[Validators.required,Validators.maxLength(10)]),
           'description' : new  FormControl('',[Validators.required,Validators.minLength(3)]),
           'published' : new  FormControl('')
       })

@@ -9,6 +9,7 @@ import { LayoutModule } from './layout/layout.module';
 import { UsersModule } from './users/users.module';
 import {  RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
+import {MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS, MAT_SNACK_BAR_DEFAULT_OPTIONS_FACTORY} from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { AppRoutingModule } from './app-routing.module';
         BrowserAnimationsModule,
         LayoutModule,
         UsersModule,
-        AppRoutingModule
+        AppRoutingModule,
+        MatSnackBarModule
        
         
     ],
