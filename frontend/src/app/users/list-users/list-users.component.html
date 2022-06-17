@@ -1,14 +1,22 @@
-<mat-card>
-    <mat-card-title>Displaying Tasks</mat-card-title>
-    <mat-card-content>
-        <table mat-table [dataSource]="listUsers" class="mat-elevation-z8">
-            <!--- Note that these columns can be defined in any order.
-                  The actual rendered columns are set as a property on the row definition" -->
+
+
+<mat-card class="main-container">
+    <div class="container">
+    
+        <mat-form-field class="example-full-width" >
+           
+        <input matInput placeholder="Search by Title"  [(ngModel)]="filterText">
+          </mat-form-field>
+    </div>
+    
+    <mat-card-content >
+        <table mat-table   [dataSource]="listUsers | searchfilter:filterText"     class="mat-elevation-z8" >
+            
 
             <!-- Position Column -->
             <ng-container matColumnDef="id">
                 <th mat-header-cell *matHeaderCellDef>No.</th>
-                <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+                <td mat-cell *matCellDef="let element"  >{{ element.id }}</td>
             </ng-container>
 
             <!-- Title Column -->
@@ -39,11 +47,11 @@
                 <td mat-cell *matCellDef="let element">
                     <a [routerLink]="['..','view',element.id]">View</a> | 
                     <a [routerLink]="['..','delete',element.id]">Delete</a>  | 
-                    <a [routerLink]="['..',element.id]">Edit</a>
+                    <a [routerLink]="['..','edit',element.id]">Edit</a>
                 </td>
             </ng-container>
 
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns "></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
         </table>
     </mat-card-content>

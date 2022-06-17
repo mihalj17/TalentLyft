@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TutorialService } from 'src/app/services/tutorial.service';
 
 @Component({
@@ -10,7 +10,9 @@ import { TutorialService } from 'src/app/services/tutorial.service';
 export class ViewUserComponent implements OnInit {
     userId:any;
     userDetails:any;
-  constructor( private tutorialService:TutorialService,private activatedRoute: ActivatedRoute) { }
+  constructor( private tutorialService:TutorialService,
+               private activatedRoute: ActivatedRoute,
+               private router:Router) { }
 
   ngOnInit(): void {
       this.activatedRoute.params.subscribe(data => {
@@ -20,5 +22,12 @@ export class ViewUserComponent implements OnInit {
           this.userDetails=data;
       })
   }
+  backToListUsers(){
+    
+        this.router.navigate(['/users/list']);
+        
+    
+    
+}
 
 }

@@ -10,7 +10,10 @@ import { TutorialService } from 'src/app/services/tutorial.service';
 })
 export class DeleteUserComponent implements OnInit {
     userId: string ='';
-  constructor( private activatedRoute: ActivatedRoute,private tutorialService:TutorialService,private _snackBar: MatSnackBar,private router:Router) { }
+  constructor( private activatedRoute: ActivatedRoute,
+    private tutorialService:TutorialService,
+    private _snackBar: MatSnackBar,
+    private router:Router) { }
 
   ngOnInit(): void {
       this.activatedRoute.params.subscribe(data =>{
@@ -20,6 +23,7 @@ export class DeleteUserComponent implements OnInit {
       if(this.userId){
           this.tutorialService.delete(this.userId).subscribe(data =>{
             this._snackBar.open("Task delete successfully ");
+            this.router.navigate(['/users/list']);
             
           },err =>{
             this._snackBar.open("Unable to Delete the Task ");

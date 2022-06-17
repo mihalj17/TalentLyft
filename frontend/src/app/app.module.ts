@@ -10,13 +10,18 @@ import { UsersModule } from './users/users.module';
 import {  RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import {MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS, MAT_SNACK_BAR_DEFAULT_OPTIONS_FACTORY} from '@angular/material/snack-bar';
+import { SearchfilterPipe } from './users/searchfilter.pipe';
+
+
+
 
 
 @NgModule({
     declarations: [
         AppComponent,
         
-    
+     
+        
     ],
     imports: [
         BrowserModule,
@@ -28,10 +33,15 @@ import {MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS, MAT_SNACK_BAR_DEFAULT_
         LayoutModule,
         UsersModule,
         AppRoutingModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        
+        
        
         
     ],
+    
+
+    
     providers: [],
     bootstrap: [AppComponent]
 })

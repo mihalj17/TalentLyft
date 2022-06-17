@@ -1,8 +1,14 @@
-
-<mat-card *ngIf="userDetails" class="user-details">
+<div class="mainbox">
+<mat-card *ngIf="userDetails" class="user-details" (submit)="backToListUsers()">
 
     <mat-card-title>{{userDetails.title}}</mat-card-title>
     <mat-card-content>
         {{userDetails.description}}
+
+        
     </mat-card-content>
+    
+    
+    
 </mat-card>
+</div>

@@ -1,7 +1,8 @@
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TutorialService } from 'src/app/services/tutorial.service';
 
 @Component({
@@ -17,7 +18,8 @@ export class EditUserComponent implements OnInit {
   constructor(private activatedRoute : ActivatedRoute,
             private  tutorialService:TutorialService,
             private formBuilder:FormBuilder,
-            private _snackBar: MatSnackBar) { }
+            private _snackBar: MatSnackBar,
+            private router:Router) { }
 
   ngOnInit(): void {
       this.dataLoaded=false;
@@ -47,8 +49,10 @@ export class EditUserComponent implements OnInit {
  updateUser(){
     this.tutorialService.update(this.userId,this.editUserForm.value).subscribe(data =>{
         this._snackBar.open("Task updated successfully ");
+        this.router.navigate(['/users/list']);
     },err =>{
       this._snackBar.open("Unable to  update user");
+      
     }
     )
  }

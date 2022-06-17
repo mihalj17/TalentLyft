@@ -11,6 +11,23 @@
 
 table {
     width: 95%;
-    padding-right: 20px;
-  }
+    padding-right: 30px;
+    margin-left: 50px;
+    
+}
   
+.container{
+    display: flex;
+    justify-content: center;
+    
+    }
+    
+    
+
+.main-container{
+    height: 100%;
+    background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(232,229,166,1) 0%, rgba(0,212,255,1) 100%);
+}
+::placeholder{
+    color: white;
+}

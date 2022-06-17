@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { TutorialService } from 'src/app/services/tutorial.service';
 
 
@@ -12,7 +13,7 @@ import { TutorialService } from 'src/app/services/tutorial.service';
 export class AddUserComponent implements OnInit {
 
     addUserForm: FormGroup = new FormGroup({});
-  constructor( private formBuilder: FormBuilder,private tutorialService:TutorialService,private _snackBar: MatSnackBar,) { }
+  constructor( private formBuilder: FormBuilder,private tutorialService:TutorialService,private _snackBar: MatSnackBar,private router:Router) { }
 
   ngOnInit(): void {
       this.addUserForm= this.formBuilder.group({
@@ -25,10 +26,13 @@ export class AddUserComponent implements OnInit {
   createUser(){
       this.tutorialService.create(this.addUserForm.value).subscribe(data =>{
           this._snackBar.open("Task created successfully ");
+          this.router.navigate(['/users/list']);
+          
       },err =>{
         this._snackBar.open("Unable to  create user");
       }
       )
+      
   }
 
 }

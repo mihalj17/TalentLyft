@@ -11,11 +11,12 @@ import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS, MAT_SNACK_BAR_DEFAULT_OPTIONS_FACTORY} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
+import { SearchfilterPipe } from './searchfilter.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {MatTableModule} from '@angular/material/table';
     ViewUserComponent,
     AddUserComponent,
     EditUserComponent,
-    DeleteUserComponent
+    DeleteUserComponent,
+    SearchfilterPipe
   ],
   imports: [
     CommonModule,
@@ -37,14 +39,16 @@ import {MatTableModule} from '@angular/material/table';
     MatButtonModule,
     MatCheckboxModule,
     MatSnackBarModule,
-    MatTableModule
+    MatTableModule,
+    FormsModule
   ],
   exports:[
     ListUsersComponent,
     ViewUserComponent,
     AddUserComponent,
     EditUserComponent,
-    DeleteUserComponent
+    DeleteUserComponent,
+    
   ],
   providers:[
       {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,useValue:{duration:2500}}

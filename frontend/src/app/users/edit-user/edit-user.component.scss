@@ -1,0 +1,16 @@
+.card{
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.mainbox{
+    width: auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(232,229,166,1) 0%, rgba(0,212,255,1) 100%);
+    
+}
