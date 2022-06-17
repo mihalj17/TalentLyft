@@ -14,7 +14,7 @@
             
 
             <!-- Position Column -->
-            <ng-container matColumnDef="id">
+            <ng-container matColumnDef="id" class="row">
                 <th mat-header-cell *matHeaderCellDef>No.</th>
                 <td mat-cell *matCellDef="let detail"  >{{ detail.id }}</td>
             </ng-container>
@@ -45,9 +45,9 @@
             <ng-container matColumnDef="actions">
                 <th mat-header-cell *matHeaderCellDef>Actions</th>
                 <td mat-cell *matCellDef="let detail">
-                    <a [routerLink]="['..','view',detail.id]">View</a> | 
-                    <a [routerLink]="['..','delete',detail.id]">Delete</a>  | 
-                    <a [routerLink]="['..','edit',detail.id]">Edit</a>
+                    <button mat-raised-button color="primary"><a [routerLink]="['..','view',detail.id]" style="text-decoration: none; color: white;">View</a></button> 
+                    <button mat-raised-button color="primary"><a [routerLink]="['..','delete',detail.id]" style="text-decoration: none; color: white;">Delete</a></button> 
+                    <button mat-raised-button color="primary"> <a [routerLink]="['..','edit',detail.id]" style="text-decoration: none; color: white;">Edit</a></button>
                 </td>
             </ng-container>
 
