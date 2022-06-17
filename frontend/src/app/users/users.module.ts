@@ -17,6 +17,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS, MAT_SNACK_BAR_DEFAULT_OPTIONS_FACTORY} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
 import { SearchfilterPipe } from './searchfilter.pipe';
+import { PublishedListComponent } from './published-list/published-list.component';
+import { FilteredSearchFilterPipe } from './filtered-search-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { SearchfilterPipe } from './searchfilter.pipe';
     AddUserComponent,
     EditUserComponent,
     DeleteUserComponent,
-    SearchfilterPipe
+    SearchfilterPipe,
+    PublishedListComponent,
+    FilteredSearchFilterPipe
   ],
   imports: [
     CommonModule,
@@ -48,6 +52,7 @@ import { SearchfilterPipe } from './searchfilter.pipe';
     AddUserComponent,
     EditUserComponent,
     DeleteUserComponent,
+    PublishedListComponent
     
   ],
   providers:[

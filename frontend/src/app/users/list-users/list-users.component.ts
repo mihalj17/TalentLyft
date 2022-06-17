@@ -19,21 +19,22 @@ import { MatTable, MatTableDataSource } from '@angular/material/table';
 export class ListUsersComponent implements OnInit {
   
   listUsers:Tutorial[]=[];
+  publishedUsers: Tutorial[]=[];
   displayedColumns: string[] = ['id', 'title', 'description', 'published','actions'];
   dataSource =  ELEMENT_DATA;
   filterText:string='';
   dataTitle:string='';
   publish:boolean=false;
+  
   constructor(private tutorialService:TutorialService) { }
 
   ngOnInit(): void {
       this.tutorialService.getAll().subscribe( data =>{
           this.listUsers=data;
           
-          
-          
-      });
-      
+         
+          });
+         
   }
 
         
